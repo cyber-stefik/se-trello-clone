@@ -24,7 +24,7 @@ export async function getBoardItems(): Promise<BoardInterface[]> {
 export async function getBoardItem(id: string): Promise<BoardInterface> {
 	try {
 	  await connectMongo();
-	  const board = await Board.findById(id).lean();
+	  const board = await Board.findById(id).lean<BoardInterface>();
 	  if (!board) {
 		throw new Error('Board not found');
 	  }

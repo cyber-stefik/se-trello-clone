@@ -135,7 +135,6 @@ export default function BoardPage() {
                     <div className="flex justify-between items-center">
                       <h3 className="text-xl font-semibold text-gray-700">{card.name}</h3>
                       <button
-                        onClick={() => handleEditCard(card.name)}
                         className="bg-green-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-green-600 focus:outline-none"
                       >
                         Edit
@@ -144,7 +143,6 @@ export default function BoardPage() {
                     <div className="flex justify-between items-center">
                       <p className="text-gray-600">{card.description}</p>
                       <button
-                        onClick={() => handleEditCard(card.name)}
                         className="bg-green-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-green-600 focus:outline-none"
                       >
                         Edit

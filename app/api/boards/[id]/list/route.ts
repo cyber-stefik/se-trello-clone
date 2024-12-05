@@ -59,8 +59,9 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
   
 	  return NextResponse.json(updatedBoard);
 	} catch (error) {
-	  console.error('Error processing request:', error.message);
-	  return NextResponse.json({ message: 'Error processing request', error: error.message }, { status: 500 });
+	  const err = error as Error;
+	  console.error('Error processing request:', err.message);
+	  return NextResponse.json({ message: 'Error processing request', error: err.message }, { status: 500 });
 	}
   }
 
@@ -88,6 +89,7 @@ export async function POST(req: Request, { params }: { params: { boardId: string
 		await board.save();
 		return NextResponse.json(board);
 	} catch (error) {
-		return NextResponse.json({ message: 'Error adding card', error: error.message }, { status: 500 });
+		const err = error as Error;
+		return NextResponse.json({ message: 'Error adding card', error: err.message }, { status: 500 });
 	}
 }
